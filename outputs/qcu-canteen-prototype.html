@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8faf7">
+<title>QCU Canteen | Order ahead</title>
+<style>
+
+:root{color-scheme:light;--bg:#f8faf7;--surface:#fff;--ink:#18332a;--muted:#68776f;--green:#176b4b;--green-dark:#10553a;--green-soft:#eaf4ed;--line:#e4eae5;--gold:#98621c;--gold-soft:#fff3dc;--red:#a53b35;--red-soft:#fbecea;--radius:18px;--shadow:0 8px 24px rgba(29,60,43,.07);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-synthesis:none;text-rendering:optimizeLegibility}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.45}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #de9b34;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.5}.app{min-height:100vh;max-width:1440px;margin:auto}.desktop-nav{display:none}.mobile-top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:12px 17px;background:rgba(248,250,247,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.4px}.brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;color:white;background:var(--green);font-size:18px}.brand-sub{display:block;margin-top:1px;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0}.account{width:38px;height:38px;border:0;border-radius:50%;background:#dfece1;color:var(--green-dark);font-weight:800}.main{padding:22px 17px 115px;max-width:920px;margin:auto}.eyebrow{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.3px}.heading{margin:0 0 19px}.heading h1{margin:4px 0 5px;font-size:27px;line-height:1.15;letter-spacing:-.9px}.heading p{margin:0;color:var(--muted);font-size:14px}.open-pill{display:inline-flex;align-items:center;gap:7px;margin-top:12px;border:1px solid #d8e8db;border-radius:30px;background:#f1f7f1;padding:7px 11px;color:#286a49;font-size:11px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:#42a366}.banner{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:19px 0 23px;padding:19px;border-radius:var(--radius);color:white;background:linear-gradient(120deg,#155a40,#267451)}.banner h2{max-width:270px;margin:0 0 5px;font-size:19px;line-height:1.2;letter-spacing:-.4px}.banner p{max-width:280px;margin:0;color:#e0eee5;font-size:12px}.banner-mark{flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#ffffff18}.banner-mark svg{width:26px;height:26px}.menu-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 12px}.menu-head h2,.section-head h2{margin:0;font-size:18px;letter-spacing:-.35px}.menu-head span{font-size:11px;color:var(--muted)}.filters{display:flex;gap:8px;overflow:auto;padding:2px 2px 6px;margin:0 -2px 11px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:8px 14px;background:var(--surface);color:#53645b;font-size:12px;font-weight:700}.filter[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:white}.grid{display:grid;grid-template-columns:1fr;gap:11px}.food{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:center;gap:12px;padding:10px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 2px 8px rgba(29,60,43,.025)}.food-art{position:relative;width:82px;height:82px;display:grid;place-items:center;overflow:hidden;border-radius:12px;background:#f0f5ee;color:#49765b}.food-art:before,.food-art:after{content:"";position:absolute;border:1px solid #9ebba3;border-radius:50%;width:43px;height:43px}.food-art:after{width:31px;height:31px}.food-art svg{z-index:1;width:24px;height:24px}.food-art.meal{background:#edf4e9;color:#3b7851}.food-art.snack{background:#fbf2e5;color:#a26e2c}.food-art.drink{background:#e9f3f6;color:#397286}.food-info{min-width:0}.food-info h3{margin:0 0 3px;font-size:14px;line-height:1.25}.food-info p{margin:0;color:var(--muted);font-size:11px;line-height:1.35}.food-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:9px}.price{font-size:13px;font-weight:800;color:var(--green-dark)}.stock{display:block;margin-top:3px;font-size:10px;font-weight:700;color:#37744e}.stock.sold{color:var(--red)}.add{min-width:38px;height:36px;border:1px solid #cfe2d1;border-radius:11px;background:var(--green-soft);color:var(--green);font-size:20px;font-weight:500;line-height:1}.add:hover{background:#dcecdf}.empty{padding:23px;border:1px dashed #cdd8cf;border-radius:15px;text-align:center;color:var(--muted);font-size:13px}.sticky-cart{position:fixed;z-index:8;right:0;bottom:0;left:0;padding:10px 15px calc(10px + env(safe-area-inset-bottom));background:rgba(248,250,247,.96);border-top:1px solid var(--line);backdrop-filter:blur(12px)}.cart-button{width:100%;max-width:600px;min-height:52px;margin:auto;display:flex;align-items:center;justify-content:space-between;border:0;border-radius:14px;padding:0 16px;background:var(--green);color:white;text-align:left}.cart-button:disabled{background:#c8d3ca;color:#526258;opacity:1}.cart-label{font-size:14px;font-weight:800}.cart-hint{display:block;margin-top:1px;font-size:10px;font-weight:500;opacity:.8}.cart-total{font-size:14px;font-weight:800}.bottom-nav{position:fixed;z-index:7;right:0;bottom:72px;left:0;display:flex;justify-content:center;gap:8px;pointer-events:none}.bottom-nav button{pointer-events:auto;min-height:38px;border:1px solid var(--line);border-radius:30px;padding:0 12px;background:#fff;color:#53645b;font-size:11px;font-weight:700;box-shadow:0 2px 10px #19382a0b}.bottom-nav button[aria-current="page"]{color:var(--green);border-color:#cfe2d1;background:#f1f7f1}.screen{display:none}.screen.active{display:block}.screen-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:18px}.screen-head h1{margin:4px 0;font-size:25px;letter-spacing:-.7px}.screen-head p{margin:0;color:var(--muted);font-size:13px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:16px;box-shadow:0 2px 8px rgba(29,60,43,.025)}.panel h2{margin:0 0 13px;font-size:16px}.order-card{margin:10px 0;padding:15px;border:1px solid var(--line);border-radius:15px;background:#fff}.order-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.order-name{font-size:13px;font-weight:800}.order-id{display:block;margin-top:3px;color:var(--muted);font-size:11px}.badge{display:inline-flex;align-items:center;white-space:nowrap;border-radius:30px;padding:6px 9px;background:var(--gold-soft);color:var(--gold);font-size:10px;font-weight:800}.badge.ready{background:var(--green-soft);color:var(--green)}.order-detail{margin:12px 0 0;padding-top:11px;border-top:1px solid var(--line);color:#53645b;font-size:12px}.order-detail strong{color:var(--ink)}.stepper{display:flex;align-items:flex-start;margin:17px 0 2px}.step{flex:1;position:relative;text-align:center;color:#89958d;font-size:10px}.step:not(:last-child):after{content:"";position:absolute;top:8px;left:60%;width:80%;height:2px;background:#e2e9e3}.step.done:not(:last-child):after{background:#73a77e}.step-dot{position:relative;z-index:1;width:17px;height:17px;margin:0 auto 6px;border:2px solid #d9e1da;border-radius:50%;background:white}.step.done .step-dot{border-color:#73a77e;background:#73a77e}.step.current{color:var(--green);font-weight:800}.step.current .step-dot{border-color:var(--green);box-shadow:0 0 0 3px #e2f0e4}.pickup-note{margin-top:13px;border-radius:11px;background:#f3f7f2;padding:11px;color:#50645a;font-size:11px}.status-list{display:flex;flex-direction:column;gap:10px}.staff-order{padding:14px;border:1px solid var(--line);border-radius:14px;background:white}.staff-order-head{display:flex;justify-content:space-between;gap:10px}.staff-order h3{margin:0;font-size:14px}.staff-order small{color:var(--muted);font-size:11px}.staff-items{margin:11px 0;color:#53645b;font-size:12px}.staff-actions{display:flex;align-items:center;justify-content:space-between;gap:10px}.staff-actions .badge{margin-right:auto}.action{min-height:38px;border:0;border-radius:10px;padding:0 12px;background:var(--green);color:white;font-size:11px;font-weight:800}.action.secondary{background:var(--green-soft);color:var(--green)}.staff-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:15px}.summary-card{padding:12px 9px;border:1px solid var(--line);border-radius:13px;background:white}.summary-card span{display:block;color:var(--muted);font-size:10px}.summary-card strong{display:block;margin-top:5px;font-size:20px;letter-spacing:-.4px}.note{margin-top:12px;color:var(--muted);font-size:11px;line-height:1.5}.veil{position:fixed;z-index:10;inset:0;display:none;align-items:flex-end;justify-content:center;background:rgba(15,34,25,.36)}.veil.open{display:flex}.sheet{width:100%;max-width:600px;max-height:90vh;overflow:auto;border-radius:22px 22px 0 0;background:var(--bg);padding:10px 17px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -10px 45px #102d1d25}.sheet-handle{width:38px;height:4px;margin:2px auto 14px;border-radius:5px;background:#cbd5cd}.sheet-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sheet-header h2{margin:0;font-size:19px}.close{width:34px;height:34px;border:0;border-radius:50%;background:#eaf0ea;font-size:18px}.cart-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.cart-row strong{font-size:13px}.cart-row small{display:block;margin-top:3px;color:var(--muted);font-size:11px}.quantity{display:flex;align-items:center;gap:9px}.quantity button{width:28px;height:28px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--green);font-weight:800}.sheet-total{display:flex;justify-content:space-between;padding:14px 0;font-size:14px;font-weight:800}.payment-note{border-radius:12px;background:#f0f5ee;padding:12px;color:#4c6354;font-size:11px}.place-order{width:100%;min-height:47px;margin-top:12px;border:0;border-radius:12px;background:var(--green);color:white;font-size:13px;font-weight:800}.toast{position:fixed;z-index:20;bottom:90px;left:50%;transform:translateX(-50%);max-width:calc(100% - 32px);border-radius:12px;background:#183d2d;padding:11px 15px;color:white;font-size:12px;font-weight:700;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .18s ease}.toast.show{opacity:1}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:700px){.app{display:grid;grid-template-columns:230px 1fr}.desktop-nav{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:25px 15px;background:#fff;border-right:1px solid var(--line)}.desktop-nav .brand{padding:0 10px 30px}.nav-label{padding:8px 11px;color:#88968e;font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}.nav-link{display:flex;align-items:center;gap:11px;min-height:44px;margin:2px 0;border:0;border-radius:11px;padding:0 11px;background:transparent;color:#5e7065;text-align:left;font-size:13px;font-weight:700}.nav-link .navicon{width:19px;height:19px}.nav-link[aria-current="page"]{background:var(--green-soft);color:var(--green)}.nav-bottom{margin-top:auto;border-radius:14px;background:#f1f6f0;padding:14px;color:#5c6e62;font-size:11px;line-height:1.5}.nav-bottom strong{display:block;margin-bottom:3px;color:var(--ink);font-size:12px}.content{min-width:0}.mobile-top,.bottom-nav{display:none}.sticky-cart{display:block;right:0;bottom:14px;left:230px;border:0;background:transparent;padding:10px 20px}.main{padding:34px 36px 100px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.food{grid-template-columns:88px minmax(0,1fr);padding:11px}.food-art{width:88px;height:88px}.banner{padding:25px 27px}.banner h2{font-size:22px}.panel{padding:20px}.screen-head h1{font-size:29px}.veil{align-items:center}.sheet{border-radius:22px;padding:10px 23px 22px}}
+@media(min-width:1060px){.app{grid-template-columns:250px 1fr}.main{padding:40px 52px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.food{grid-template-columns:76px minmax(0,1fr);gap:11px}.food-art{width:76px;height:76px}.menu-head h2,.section-head h2{font-size:19px}}
+.nav-label.canteen{margin-top:20px}.auth-success.top{margin-top:15px}.staff-actions .note.compact{margin:0}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+.auth-shell{position:fixed;z-index:30;inset:0;display:flex;align-items:center;justify-content:center;overflow:auto;background:linear-gradient(145deg,#edf5ed,#f8faf7 52%,#eff4ed);padding:20px}.auth-card{width:min(100%,430px);border:1px solid var(--line);border-radius:24px;background:white;padding:24px;box-shadow:0 16px 50px rgba(24,51,42,.12)}.auth-brand{display:flex;align-items:center;gap:11px;margin-bottom:23px}.auth-brand b{font-size:17px}.auth-brand small{display:block;margin-top:2px;color:var(--muted);font-size:11px}.auth-card h1{margin:0 0 6px;font-size:25px;letter-spacing:-.7px}.auth-card>p{margin:0 0 20px;color:var(--muted);font-size:13px}.auth-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}.auth-choice button{display:flex;min-height:100px;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px;text-align:left;font-weight:800}.auth-choice button:hover{border-color:#9bbfa1;background:#f5f9f4}.auth-choice small{color:var(--muted);font-size:11px;font-weight:500}.auth-field{display:block;margin:14px 0 0;font-size:12px;font-weight:700}.auth-field input{display:block;width:100%;height:47px;margin-top:6px;border:1px solid #cfd9d1;border-radius:11px;background:#fff;padding:0 12px;color:var(--ink);font:inherit;font-size:15px;letter-spacing:.2px}.auth-field input:focus{outline:3px solid #dceedd;border-color:var(--green)}.auth-primary{width:100%;min-height:47px;margin-top:18px;border:0;border-radius:12px;background:var(--green);color:white;font-size:13px;font-weight:800}.auth-secondary{width:100%;margin-top:10px;border:0;background:none;color:var(--green);padding:9px;font-size:12px;font-weight:700}.auth-demo{margin-top:15px;border-radius:12px;background:#f3f7f2;padding:11px;color:#5b6e60;font-size:10px;line-height:1.6}.auth-demo b{color:#304b39}.auth-error{display:none;margin-top:11px;border-radius:9px;background:var(--red-soft);padding:10px;color:var(--red);font-size:11px}.auth-error.show{display:block}.auth-success{margin-bottom:13px;border-radius:11px;background:#eff6ee;padding:11px;color:#3e654b;font-size:12px}.auth-back{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;border:0;background:none;color:var(--green);padding:4px 0;font-size:12px;font-weight:700}.auth-intro{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.pin-wrap{position:relative}.pin-wrap input{letter-spacing:5px;font-variant-numeric:tabular-nums}.auth-shell[hidden]{display:none}body.role-staff .sticky-cart,body.role-staff .bottom-nav{display:none!important}body.role-staff [data-screen="menu"],body.role-staff [data-screen="orders"]{display:none!important}body.role-student [data-screen="staff"]{display:none!important}
+
+.header-actions{display:flex;align-items:center;gap:8px}.switch-account{width:auto;min-height:36px;margin:0;border:1px solid #cfe2d1;border-radius:10px;background:#fff;color:var(--green);padding:0 10px;font-size:10px;font-weight:800;white-space:nowrap}.nav-bottom .switch-account{width:100%;margin-top:11px}
+
+@media(min-width:700px){.sticky-cart{position:static;z-index:auto;right:auto;bottom:auto;left:auto;padding:14px 20px 22px;border-top:1px solid var(--line);background:rgba(248,250,247,.96);backdrop-filter:none}.cart-button{margin:0 auto}}
+
+</style>
+</head>
+<body>
+<section class="auth-shell" id="auth-shell" aria-label="Sign in to QCU Canteen">
+ <div class="auth-card">
+  <div class="auth-brand"><span class="brand-mark" aria-hidden="true">Q</span><span><b>QCU Canteen</b><small>Order ahead, pick up fresh</small></span></div>
+  <div id="auth-content"></div>
+ </div>
+</section>
+<div class="app">
+  <aside class="desktop-nav" aria-label="Main navigation">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">Q</span><span>QCU Canteen</span></div>
+    <div class="nav-label">Student</div>
+    <button class="nav-link" data-screen="menu" aria-current="page"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Menu & ordering</button>
+    <button class="nav-link" data-screen="orders"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>My orders</button>
+    <div class="nav-label canteen">Canteen</div>
+    <button class="nav-link" data-screen="staff"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Staff order desk</button>
+    <div class="nav-bottom"><strong>Pickup only</strong>Cash payment when you collect your order at the canteen.<button class="auth-secondary switch-account" type="button" id="switch-account-desktop">Switch account</button><button class="auth-secondary" type="button" data-logout>Sign out</button></div>
+  </aside>
+  <div class="content">
+    <header class="mobile-top"><div class="brand"><span class="brand-mark" aria-hidden="true">Q</span><span>QCU Canteen</span></div><div class="header-actions"><button class="switch-account" type="button" id="switch-account-mobile">Switch account</button><button class="account" aria-label="Sign out" data-logout>JM</button></div></header>
+    <main class="main">
+      <section class="screen active" id="screen-menu" aria-labelledby="welcome-title">
+        <div class="heading"><span class="eyebrow">QCU CANTEEN</span><h1 id="welcome-title">Order ahead, Juan</h1><p>Pick your meal now and collect it during your break.</p><span class="open-pill"><span class="dot" aria-hidden="true"></span>Orders open</span></div>
+        <div class="banner"><div><h2>Your break, made easier.</h2><p>Place your order ahead and spend less time waiting to order.</p></div><span class="banner-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M9 11v5M15 11v5"/></svg></span></div>
+        <div class="menu-head"><h2 id="menu-title">Today's menu</h2><span>Availability set by canteen</span></div>
+        <div class="filters" role="group" aria-label="Filter menu"><button class="filter" data-cat="All" aria-pressed="true">All items</button><button class="filter" data-cat="Meals" aria-pressed="false">Meals</button><button class="filter" data-cat="Snacks" aria-pressed="false">Snacks</button><button class="filter" data-cat="Drinks" aria-pressed="false">Drinks</button></div>
+        <div class="grid" id="food-list" aria-live="polite"></div>
+      </section>
+      <section class="screen" id="screen-orders" aria-labelledby="orders-title"><div class="screen-head"><div><span class="eyebrow">STUDENT</span><h1 id="orders-title">My orders</h1><p>Follow your order and pick it up when it is ready.</p></div></div><div class="panel"><h2>Order status</h2><div id="order-list"><div class="empty">Your placed orders will show here.</div></div><p class="note">Order statuses are updated manually by canteen staff.</p></div></section>
+      <section class="screen" id="screen-staff" aria-labelledby="staff-title"><div class="screen-head"><div><span class="eyebrow">CANTEEN</span><h1 id="staff-title">Staff order desk</h1><p>Review incoming orders and update their pickup status.</p></div></div><div class="staff-summary"><div class="summary-card"><span>Received</span><strong id="received-count">0</strong></div><div class="summary-card"><span>Preparing</span><strong id="preparing-count">0</strong></div><div class="summary-card"><span>Ready</span><strong id="ready-count">0</strong></div></div><div class="panel"><h2>Incoming orders</h2><div id="staff-list" class="status-list"><div class="empty">New student orders will appear here.</div></div><p class="note">Menu availability and order statuses are managed by canteen staff.</p></div></section>
+    </main>
+  </div>
+</div>
+<nav class="bottom-nav" aria-label="Main navigation"><button data-screen="menu" aria-current="page">Menu</button><button data-screen="orders">My orders</button><button data-screen="staff">Staff</button></nav>
+<div class="sticky-cart"><button class="cart-button" id="cart-open" disabled aria-haspopup="dialog"><span><span class="cart-label" id="cart-label">Your order is empty</span><span class="cart-hint">Pickup only · Cash at pickup</span></span><span class="cart-total" id="cart-total">₱0.00</span></button></div>
+<div class="veil" id="cart-veil" role="presentation"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="cart-title"><div class="sheet-handle" aria-hidden="true"></div><div class="sheet-header"><h2 id="cart-title">Review your order</h2><button class="close" id="cart-close" aria-label="Close order summary">×</button></div><div id="cart-lines"></div><div class="sheet-total"><span>Total</span><span id="sheet-total">₱0.00</span></div><div class="payment-note"><strong>Pickup at QCU Canteen</strong><br>Pay cash when you collect your order. Online payment and delivery are not available.</div><button class="place-order" id="place-order">Place order</button></section></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const demoAccounts = {
+  student: { id: '20260001', name: 'Juan Mercado', pin: '123456', role: 'student', temporary: true },
+  staff: { id: 'QCUSTAFF01', name: 'Maria Santos', pin: '123456', role: 'staff', temporary: true },
+};
+const menuItems = [
+  { id: 'chicken', name: 'Chicken rice bowl', category: 'Meals', description: 'Grilled chicken with steamed rice', priceCents: 9500, icon: 'meal' },
+  { id: 'pancit', name: 'Pancit canton', category: 'Meals', description: 'Noodles with mixed vegetables', priceCents: 6500, icon: 'meal' },
+  { id: 'sandwich', name: 'Veggie sandwich', category: 'Snacks', description: 'Fresh vegetables on soft bread', priceCents: 5500, icon: 'snack' },
+  { id: 'turon', name: 'Turon', category: 'Snacks', description: 'Banana spring roll · 2 pieces', priceCents: 3000, icon: 'snack' },
+  { id: 'gulaman', name: 'Iced gulaman', category: 'Drinks', description: 'Chilled house-made drink', priceCents: 2500, icon: 'drink' },
+  { id: 'water', name: 'Bottled water', category: 'Drinks', description: 'Cold drinking water', priceCents: 2000, icon: 'drink' },
+];
+const state = { account: null, filter: 'All', cart: {}, orders: [] };
+const money = cents => `₱${(cents / 100).toFixed(2)}`;
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const foodIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 11h14v2a7 7 0 0 1-14 0zM4 10h16M8 7l1 2M12 6v3M16 7l-1 2"/></svg>';
+let pendingAccount = null;
+
+function setError(message) {
+  const error = document.getElementById('auth-error');
+  if (error) { error.textContent = message; error.classList.add('show'); }
+}
+
+function drawRoleChoice() {
+  document.getElementById('auth-content').innerHTML = `
+    <span class="eyebrow">WELCOME</span><h1>Sign in to order</h1>
+    <p>Choose your account type to continue.</p>
+    <div class="auth-choice">
+      <button type="button" data-role="student">Student<small>Student number and PIN</small></button>
+      <button type="button" data-role="staff">Canteen staff<small>Staff ID and PIN</small></button>
+    </div>
+    <div class="auth-demo"><b>Presentation demo</b><br>Student: ${demoAccounts.student.id} · PIN: ${demoAccounts.student.pin}<br>Staff: ${demoAccounts.staff.id} · PIN: ${demoAccounts.staff.pin}<br>Demo details only. Do not enter real student information.</div>`;
+  document.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => drawLogin(button.dataset.role)));
+}
+
+function drawLogin(role, errorMessage = '') {
+  const account = demoAccounts[role];
+  const label = role === 'student' ? 'Student number' : 'Staff ID';
+  document.getElementById('auth-content').innerHTML = `
+    <button type="button" class="auth-back" data-back>← Choose account type</button>
+    <span class="eyebrow">${role === 'student' ? 'STUDENT SIGN IN' : 'STAFF SIGN IN'}</span>
+    <h1>${role === 'student' ? 'Welcome, student' : 'Welcome, staff'}</h1>
+    <p>Enter your ${label.toLowerCase()} and six-digit PIN.</p>
+    <form id="login-form">
+      <label class="auth-field">${label}<input name="accountNumber" autocomplete="username" inputmode="${role === 'student' ? 'numeric' : 'text'}" maxlength="80" required></label>
+      <label class="auth-field">PIN<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="current-password" required></label>
+      <div class="auth-error${errorMessage ? ' show' : ''}" id="auth-error" role="alert">${escapeHtml(errorMessage)}</div>
+      <button class="auth-primary" type="submit">Continue</button>
+    </form>
+    <div class="auth-demo">Demo ${role === 'student' ? 'student number' : 'staff ID'}: <b>${account.id}</b> · ${account.temporary ? 'Temporary PIN' : 'Demo PIN'}: <b>${account.pin}</b></div>`;
+  document.querySelector('[data-back]').addEventListener('click', drawRoleChoice);
+  document.getElementById('login-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const enteredId = form.get('accountNumber').trim().toUpperCase();
+    const enteredPin = form.get('pin');
+    if (enteredId !== account.id || enteredPin !== account.pin) return setError('That demo ID and PIN did not match.');
+    pendingAccount = account;
+    if (account.temporary) drawPinChange();
+    else enterApp(account);
+  });
+}
+
+function drawPinChange(errorMessage = '') {
+  const account = pendingAccount;
+  document.getElementById('auth-content').innerHTML = `
+    <span class="eyebrow">FIRST SIGN IN</span><h1>Set your own PIN</h1>
+    <p class="auth-intro">Create a new six-digit PIN for this presentation demo.</p>
+    <div class="auth-success top">Demo account selected: ${escapeHtml(account.name)}.</div>
+    <form id="pin-form">
+      <label class="auth-field">New six-digit PIN<input id="new-pin" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="new-password" required></label>
+      <label class="auth-field">Confirm new PIN<input id="confirm-pin" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="new-password" required></label>
+      <div class="auth-error${errorMessage ? ' show' : ''}" id="auth-error" role="alert">${escapeHtml(errorMessage)}</div>
+      <button class="auth-primary" type="submit">Save PIN and continue</button>
+    </form>
+    <button type="button" class="auth-secondary" id="cancel-pin">Sign out</button>`;
+  document.getElementById('pin-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const nextPin = document.getElementById('new-pin').value;
+    const confirmPin = document.getElementById('confirm-pin').value;
+    if (nextPin === account.pin) return setError('Choose a PIN different from the temporary PIN.');
+    if (nextPin !== confirmPin) return setError('The PINs do not match.');
+    if (/^(.)\1{5}$/.test(nextPin) || ['012345', '123456', '654321'].includes(nextPin)) return setError('Choose a less predictable six-digit PIN.');
+    account.pin = nextPin;
+    account.temporary = false;
+    enterApp(account);
+  });
+  document.getElementById('cancel-pin').addEventListener('click', signOut);
+}
+
+function enterApp(account) {
+  state.account = account;
+  document.body.classList.remove('role-student', 'role-staff');
+  document.body.classList.add(`role-${account.role}`);
+  document.getElementById('auth-shell').hidden = true;
+  document.getElementById('welcome-title').textContent = `Order ahead, ${account.name.split(' ')[0]}`;
+  document.querySelector('.account').textContent = account.name.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+  document.querySelector('.account').setAttribute('aria-label', `Sign out ${account.name}`);
+  const nextRoleLabel = account.role === 'student' ? 'Switch to staff' : 'Switch to student';
+  document.querySelectorAll('.switch-account').forEach(button => { button.textContent = nextRoleLabel; });
+  showScreen(account.role === 'staff' ? 'staff' : 'menu');
+  drawOrders();
+  drawStaff();
+  if (account.role === 'student') {
+    const readyOrder = state.orders.find(order => order.student === account.name && order.status === 'Ready for pickup' && !order.studentNotified);
+    if (readyOrder) {
+      readyOrder.studentNotified = true;
+      notify(`Your order ${readyOrder.id} is ready for pickup.`);
+    }
+  }
+}
+
+function signOut() {
+  state.account = null;
+  state.cart = {};
+  pendingAccount = null;
+  document.body.classList.remove('role-student', 'role-staff');
+  document.getElementById('auth-shell').hidden = false;
+  drawCart();
+  drawOrders();
+  drawStaff();
+  drawRoleChoice();
+}
+
+function switchAccount() {
+  if (!state.account) return;
+  const nextAccount = demoAccounts[state.account.role === 'student' ? 'staff' : 'student'];
+  if (nextAccount.temporary) {
+    pendingAccount = nextAccount;
+    document.getElementById('auth-shell').hidden = false;
+    drawPinChange();
+    return;
+  }
+  enterApp(nextAccount);
+  notify(`Switched to ${nextAccount.role} demo.`);
+}
+
+function drawMenu() {
+  const shown = menuItems.filter(item => state.filter === 'All' || item.category === state.filter);
+  document.getElementById('food-list').innerHTML = shown.map(item => `
+    <article class="food"><div class="food-art ${item.icon}" aria-hidden="true">${foodIcon}</div>
+      <div class="food-info"><h3>${item.name}</h3><p>${item.description}</p>
+        <div class="food-meta"><div><span class="price">${money(item.priceCents)}</span><span class="stock">Available</span></div>
+          <button class="add" data-add="${item.id}" aria-label="Add ${item.name} to your order">+</button></div>
+      </div></article>`).join('');
+  document.querySelectorAll('[data-add]').forEach(button => button.addEventListener('click', () => addItem(button.dataset.add)));
+}
+
+function cartQuantity() { return Object.values(state.cart).reduce((total, count) => total + count, 0); }
+function cartTotal() {
+  return Object.entries(state.cart).reduce((total, [id, count]) => total + menuItems.find(item => item.id === id).priceCents * count, 0);
+}
+function addItem(id) {
+  if (state.cart[id] >= 10) return notify('Maximum 10 per menu item.');
+  state.cart[id] = (state.cart[id] || 0) + 1;
+  drawCart();
+}
+function changeQuantity(id, amount) {
+  const next = (state.cart[id] || 0) + amount;
+  if (next > 10) return notify('Maximum 10 per menu item.');
+  if (next < 1) delete state.cart[id]; else state.cart[id] = next;
+  drawCart();
+}
+function drawCart() {
+  const quantity = cartQuantity();
+  document.getElementById('cart-open').disabled = !quantity;
+  document.getElementById('cart-label').textContent = quantity ? `${quantity} ${quantity === 1 ? 'item' : 'items'} · View order` : 'Your order is empty';
+  document.getElementById('cart-total').textContent = money(cartTotal());
+  document.getElementById('sheet-total').textContent = money(cartTotal());
+  document.getElementById('cart-lines').innerHTML = Object.entries(state.cart).map(([id, count]) => {
+    const item = menuItems.find(entry => entry.id === id);
+    return `<div class="cart-row"><div><strong>${item.name}</strong><small>${money(item.priceCents)} each</small></div>
+      <div class="quantity"><button data-change="${id}" data-amount="-1" aria-label="Remove one ${item.name}">−</button><span>${count}</span><button data-change="${id}" data-amount="1" aria-label="Add one ${item.name}">+</button></div></div>`;
+  }).join('');
+  document.querySelectorAll('[data-change]').forEach(button => button.addEventListener('click', () => changeQuantity(button.dataset.change, Number(button.dataset.amount))));
+  document.getElementById('place-order').disabled = !quantity;
+}
+
+function orderLines(order) { return order.items.map(item => `${item.quantity} × ${item.name}`).join(', '); }
+function orderTime(order) { return new Date(order.createdAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }); }
+function statusIndicator(status) {
+  const stages = ['Received', 'Preparing', 'Ready for pickup'];
+  const current = stages.indexOf(status);
+  return `<div class="stepper" aria-label="Order progress">${stages.map((stage, index) => `<div class="step ${index <= current ? 'done' : ''} ${index === current ? 'current' : ''}"><div class="step-dot" aria-hidden="true"></div>${stage}</div>`).join('')}</div>`;
+}
+function drawOrders() {
+  const target = document.getElementById('order-list');
+  const studentOrders = state.orders.filter(order => !state.account || order.student === state.account.name);
+  target.innerHTML = studentOrders.length ? [...studentOrders].reverse().map(order => `
+    <article class="order-card"><div class="order-top"><div><div class="order-name">${escapeHtml(orderLines(order))}</div><span class="order-id">${order.id} · ${orderTime(order)}</span></div>
+      <span class="badge${order.status === 'Ready for pickup' ? ' ready' : ''}">${order.status}</span></div>${statusIndicator(order.status)}
+      <div class="order-detail">Total <strong>${money(order.totalCents)}</strong> · Cash at pickup</div>
+      <div class="pickup-note">${order.status === 'Ready for pickup' ? '🔔 Your order is ready! Please collect it at the QCU Canteen counter.' : 'Pickup at the QCU Canteen counter when your order is ready.'}</div></article>`).join('') : '<div class="empty">Your placed orders will show here.</div>';
+}
+function drawStaff() {
+  const counts = ['Received', 'Preparing', 'Ready for pickup'];
+  document.getElementById('received-count').textContent = state.orders.filter(order => order.status === counts[0]).length;
+  document.getElementById('preparing-count').textContent = state.orders.filter(order => order.status === counts[1]).length;
+  document.getElementById('ready-count').textContent = state.orders.filter(order => order.status === counts[2]).length;
+  const target = document.getElementById('staff-list');
+  target.innerHTML = state.orders.length ? [...state.orders].reverse().map(order => `
+    <article class="staff-order"><div class="staff-order-head"><div><h3>${order.id}</h3><small>${orderTime(order)} · ${escapeHtml(order.student)}</small></div>
+      <span class="badge${order.status === 'Ready for pickup' ? ' ready' : ''}">${order.status}</span></div>
+      <div class="staff-items">${escapeHtml(orderLines(order))}<br><strong>${money(order.totalCents)}</strong> · Cash at pickup</div>
+      <div class="staff-actions"><span class="note compact">Pickup order</span>${order.status === 'Ready for pickup'
+        ? '<button class="action secondary" disabled>Ready for pickup</button>'
+        : `<button class="action" data-advance="${order.id}">${order.status === 'Received' ? 'Start preparing' : 'Mark ready'}</button>`}</div></article>`).join('') : '<div class="empty">New student orders will appear here.</div>';
+  document.querySelectorAll('[data-advance]').forEach(button => button.addEventListener('click', () => advanceOrder(button.dataset.advance)));
+}
+function advanceOrder(id) {
+  const order = state.orders.find(item => item.id === id);
+  order.status = order.status === 'Received' ? 'Preparing' : 'Ready for pickup';
+  if (order.status === 'Ready for pickup') order.studentNotified = false;
+  drawStaff();
+  drawOrders();
+}
+
+function showScreen(name) {
+  if (!state.account) return;
+  if (state.account.role === 'student' && name === 'staff') return;
+  if (state.account.role === 'staff' && name !== 'staff') return;
+  document.querySelectorAll('.screen').forEach(screen => screen.classList.toggle('active', screen.id === `screen-${name}`));
+  document.querySelectorAll('[data-screen]').forEach(button => {
+    if (button.dataset.screen === name) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+}
+function notify(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  window.setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+document.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => showScreen(button.dataset.screen)));
+document.querySelectorAll('[data-cat]').forEach(button => button.addEventListener('click', () => {
+  state.filter = button.dataset.cat;
+  document.querySelectorAll('[data-cat]').forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+  drawMenu();
+}));
+document.querySelectorAll('[data-logout]').forEach(button => button.addEventListener('click', signOut));
+document.querySelectorAll('.switch-account').forEach(button => button.addEventListener('click', switchAccount));
+const veil = document.getElementById('cart-veil');
+document.getElementById('cart-open').addEventListener('click', () => { veil.classList.add('open'); document.getElementById('cart-close').focus(); });
+document.getElementById('cart-close').addEventListener('click', () => { veil.classList.remove('open'); document.getElementById('cart-open').focus(); });
+veil.addEventListener('click', event => { if (event.target === veil) veil.classList.remove('open'); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape') veil.classList.remove('open'); });
+document.getElementById('place-order').addEventListener('click', () => {
+  if (!cartQuantity()) return;
+  const items = Object.entries(state.cart).map(([id, quantity]) => ({ name: menuItems.find(item => item.id === id).name, quantity, unitPriceCents: menuItems.find(item => item.id === id).priceCents }));
+  state.orders.push({ id: `DEMO-${String(state.orders.length + 1).padStart(3, '0')}`, student: state.account.name, items, totalCents: cartTotal(), status: 'Received', createdAt: new Date() });
+  state.cart = {};
+  drawCart();
+  drawOrders();
+  drawStaff();
+  veil.classList.remove('open');
+  showScreen('orders');
+  notify('Demo order placed. Pay cash at pickup.');
+});
+
+drawMenu();
+drawCart();
+drawOrders();
+drawStaff();
+drawRoleChoice();
+
+</script>
+</body>
+</html>
+

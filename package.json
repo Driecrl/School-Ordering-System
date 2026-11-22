@@ -1,0 +1,22 @@
+{
+  "name": "qcu-canteen-ordering",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.14"
+  },
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "db:init": "node --env-file=.env scripts/init-db.js",
+    "account": "node --env-file=.env scripts/account.js"
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.2.2",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0",
+    "mariadb": "^3.5.5"
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8faf7">
+<title>QCU Canteen | Order ahead</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<section class="auth-shell" id="auth-shell" aria-label="Sign in to QCU Canteen">
+ <div class="auth-card">
+  <div class="auth-brand"><span class="brand-mark" aria-hidden="true">Q</span><span><b>QCU Canteen</b><small>Order ahead, pick up fresh</small></span></div>
+  <div id="auth-content"></div>
+ </div>
+</section>
+<div class="app">
+  <aside class="desktop-nav" aria-label="Main navigation">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">Q</span><span>QCU Canteen</span></div>
+    <div class="nav-label">Student</div>
+    <button class="nav-link" data-screen="menu" aria-current="page"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Menu & ordering</button>
+    <button class="nav-link" data-screen="orders"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>My orders</button>
+    <div class="nav-label canteen">Canteen</div>
+    <button class="nav-link" data-screen="staff"><svg class="navicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Staff order desk</button>
+    <div class="nav-bottom"><strong>Pickup only</strong>Cash payment when you collect your order at the canteen.<button class="auth-secondary switch-account" type="button" id="switch-account-desktop">Switch account</button><button class="auth-secondary" type="button" data-logout>Sign out</button></div>
+  </aside>
+  <div class="content">
+    <header class="mobile-top"><div class="brand"><span class="brand-mark" aria-hidden="true">Q</span><span>QCU Canteen</span></div><div class="header-actions"><button class="switch-account" type="button" id="switch-account-mobile">Switch account</button><button class="account" aria-label="Sign out" data-logout>JM</button></div></header>
+    <main class="main">
+      <section class="screen active" id="screen-menu" aria-labelledby="welcome-title">
+        <div class="heading"><span class="eyebrow">QCU CANTEEN</span><h1 id="welcome-title">Order ahead, Juan</h1><p>Pick your meal now and collect it during your break.</p><span class="open-pill"><span class="dot" aria-hidden="true"></span>Orders open</span></div>
+        <div class="banner"><div><h2>Your break, made easier.</h2><p>Place your order ahead and spend less time waiting to order.</p></div><span class="banner-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M9 11v5M15 11v5"/></svg></span></div>
+        <div class="menu-head"><h2 id="menu-title">Today's menu</h2><span>Availability set by canteen</span></div>
+        <div class="filters" role="group" aria-label="Filter menu"><button class="filter" data-cat="All" aria-pressed="true">All items</button><button class="filter" data-cat="Meals" aria-pressed="false">Meals</button><button class="filter" data-cat="Snacks" aria-pressed="false">Snacks</button><button class="filter" data-cat="Drinks" aria-pressed="false">Drinks</button></div>
+        <div class="grid" id="food-list" aria-live="polite"></div>
+      </section>
+      <section class="screen" id="screen-orders" aria-labelledby="orders-title"><div class="screen-head"><div><span class="eyebrow">STUDENT</span><h1 id="orders-title">My orders</h1><p>Follow your order and pick it up when it is ready.</p></div></div><div class="panel"><h2>Order status</h2><div id="order-list"><div class="empty">Your placed orders will show here.</div></div><p class="note">Order statuses are updated manually by canteen staff.</p></div></section>
+      <section class="screen" id="screen-staff" aria-labelledby="staff-title"><div class="screen-head"><div><span class="eyebrow">CANTEEN</span><h1 id="staff-title">Staff order desk</h1><p>Review incoming orders and update their pickup status.</p></div></div><div class="staff-summary"><div class="summary-card"><span>Received</span><strong id="received-count">0</strong></div><div class="summary-card"><span>Preparing</span><strong id="preparing-count">0</strong></div><div class="summary-card"><span>Ready</span><strong id="ready-count">0</strong></div></div><div class="panel"><h2>Incoming orders</h2><div id="staff-list" class="status-list"><div class="empty">New student orders will appear here.</div></div><p class="note">Menu availability and order statuses are managed by canteen staff.</p></div></section>
+    </main>
+  </div>
+</div>
+<nav class="bottom-nav" aria-label="Main navigation"><button data-screen="menu" aria-current="page">Menu</button><button data-screen="orders">My orders</button><button data-screen="staff">Staff</button></nav>
+<div class="sticky-cart"><button class="cart-button" id="cart-open" disabled aria-haspopup="dialog"><span><span class="cart-label" id="cart-label">Your order is empty</span><span class="cart-hint">Pickup only · Cash at pickup</span></span><span class="cart-total" id="cart-total">₱0.00</span></button></div>
+<div class="veil" id="cart-veil" role="presentation"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="cart-title"><div class="sheet-handle" aria-hidden="true"></div><div class="sheet-header"><h2 id="cart-title">Review your order</h2><button class="close" id="cart-close" aria-label="Close order summary">×</button></div><div id="cart-lines"></div><div class="sheet-total"><span>Total</span><span id="sheet-total">₱0.00</span></div><div class="payment-note"><strong>Pickup at QCU Canteen</strong><br>Pay cash when you collect your order. Online payment and delivery are not available.</div><button class="place-order" id="place-order">Place order</button></section></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js" defer></script>
+</body>
+</html>
