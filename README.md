@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # QCU Canteen Presentation Demo
 
 Open `outputs/qcu-canteen-presentation-demo.html` in a browser to present the student ordering and canteen staff flows.
@@ -13,4 +13,4 @@ Demo sign-ins appear on the first screen:
 The first sign-in asks for a new PIN. Demo PIN changes and orders last only until the page is reloaded. Do not enter real student or staff information.
 =======
 # School-Ordering-System
->>>>>>> 1b387a02423ffb26ff565bbb01d2558530327102
+
